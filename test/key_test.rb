@@ -12,4 +12,13 @@ class KeyTest < Minitest::Test
   def test_generate_key
     assert_equal 5, @key.generate.length
   end
+
+  def test_individual_keys
+    @key.stubs(:generate).returns([0, 1, 2, 3, 4])
+
+    assert_equal 1, @key.a_key
+    assert_equal 12, @key.b_key
+    assert_equal 23, @key.c_key
+    assert_equal 34, @key.d_key
+  end
 end
