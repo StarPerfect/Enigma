@@ -7,25 +7,23 @@ class Key
     key
   end
 
-  def a_key
-    a = generate[0].to_s + generate[1].to_s
-    a.to_i
+  def get_key(index)
+    (generate[index].to_s + generate[index + 1].to_s).to_i
+  end
 
-    # DRY UP THIS CODE SO NOT REPEATNG a = get_offset(0)
+  def a_key
+    get_key(0)
   end
 
   def b_key
-    a = generate[1].to_s + generate[2].to_s
-    a.to_i
+    get_key(1)
   end
 
   def c_key
-    a = generate[2].to_s + generate[3].to_s
-    a.to_i
+    get_key(2)
   end
 
   def d_key
-    a = generate[3].to_s + generate[4].to_s
-    a.to_i
+    get_key(3)
   end
 end
