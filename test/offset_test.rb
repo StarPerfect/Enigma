@@ -14,11 +14,11 @@ class OffsetTest < Minitest::Test
   end
 
   def test_individual_offsets
-    offset = stubs(:generate).returns('6961')
+    @offset.stubs(:generate).returns('1234')
 
-    assert_equal 6, @offset.a_offset
-    assert_equal 9, @offset.b_offset
-    assert_equal 6, @offset.c_offset
-    assert_equal 1, @offset.d_offset
+    assert_equal 1, @offset.a_offset
+    assert_equal 2, @offset.b_offset
+    assert_equal 3, @offset.c_offset
+    assert_equal 4, @offset.d_offset
   end
 end
