@@ -1,10 +1,15 @@
 class Key
+  attr_reader :key_array
+
+  def initialize
+    @key_array = []
+  end
+
   def generate
-    key = []
     5.times do
-      key << rand(9)
+      @key_array << rand(9)
     end
-    key
+  @key_array
   end
 
   def get_key(index)
