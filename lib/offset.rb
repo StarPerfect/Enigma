@@ -1,8 +1,14 @@
+require './modules/six_digit_date'
+
 class Offset
+  attr_reader :date
+
+  def initialize(date)
+    @date = date
+  end
+
   def generate
-    offset = Time.new
-    offset = offset.strftime("%d%m%y")
-    square = offset.to_i * offset.to_i
+    square = @date.to_i * @date.to_i
     square.to_s[-4..-1]
   end
 
