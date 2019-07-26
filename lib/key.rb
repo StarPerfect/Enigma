@@ -1,19 +1,15 @@
+require './modules/random_five'
+
 class Key
-  attr_reader :key_array
+  attr_reader :five_digits
+  include RandomFive
 
-  def initialize
-    @key_array = []
-  end
-
-  def generate
-    5.times do
-      @key_array << rand(9)
-    end
-  @key_array
+  def initialize(five_digits)
+    @five_digits = five_digits
   end
 
   def get_key(index)
-    (generate[index].to_s + generate[index + 1].to_s).to_i
+    (@five_digits[index] + @five_digits[index + 1]).to_i
   end
 
   def a_key
