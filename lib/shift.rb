@@ -1,9 +1,10 @@
 class Shift
-  attr_reader :key, :offset
+  attr_reader :key, :offset, :final_shift
 
   def initialize(key, offset)
     @key = key
     @offset = offset
+    @final_shift = []
   end
 
   def a
@@ -20,5 +21,9 @@ class Shift
 
   def d
     @key.d_key + @offset.d_offset
+  end
+
+  def final_shift
+    @final_shift += [a, b, c, d]
   end
 end
