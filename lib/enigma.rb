@@ -12,4 +12,8 @@ class Enigma
   def encrypt(message, key = key_generate, date = six_digit_date)
 
   end
+
+  def decrypt(message, key = key_generate, date = six_digit_date)
+    #MULTIPLY FINAL_SHIFT BY -1 FOR DECRYPTION OR REVERSE ARRAY#ROTATE
+  end
 end

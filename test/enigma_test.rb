@@ -13,7 +13,6 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_attributes
-    assert_equal 
     assert_equal 27, @enigma.alphabet.length
   end
 
