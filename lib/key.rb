@@ -2,7 +2,6 @@ require './modules/random_five'
 
 class Key
   attr_reader :five_digits
-  include RandomFive
 
   def initialize(five_digits)
     @five_digits = five_digits
