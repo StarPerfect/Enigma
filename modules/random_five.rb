@@ -1,5 +1,5 @@
 module RandomFive
-  def generate
+  def key_generate
     five_digits = rand(99999)
     five_digits = five_digits.to_s
     if five_digits.length != 5
