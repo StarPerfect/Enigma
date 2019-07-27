@@ -5,6 +5,10 @@ class Message
     @message = message
     @shift = shift
     @alphabet = ('a'..'z').to_a << " "
+    @a_cipher = a_cipher
+    @b_cipher = self.b_cipher
+    @c_cipher = self.c_cipher
+    @d_cipher = self.d_cipher
   end
 
   def a_cipher
@@ -35,11 +39,51 @@ class Message
     d_cipher_hash
   end
 
-  def encrypt
-
+def a_letter_conversion(letter)
+  if @alphabet.include?(letter)
+    @a_cipher[letter]
+  else
+    letter
   end
+end
 
-  def decrypt
+def b_letter_conversion(letter)
+  if @alphabet.include?(letter)
+    @b_cipher[letter]
+  else
+    letter
+  end
+end
 
+def c_letter_conversion(letter)
+  if @alphabet.include?(letter)
+    @c_cipher[letter]
+  else
+    letter
+  end
+end
+
+def d_letter_conversion(letter)
+  if @alphabet.include?(letter)
+    @d_cipher[letter]
+  else
+    letter
+  end
+end
+
+  def encrypt(message)
+    message = message.chars
+    encrypted = message.map do |letter|
+      if message.index(letter)%4 == 0
+        a_letter_conversion(letter)
+      elsif message.index(letter)%4 == 1
+        b_letter_conversion(letter)
+      elsif message.index(letter)%4 == 2
+        c_letter_conversion(letter)
+      else
+        d_letter_conversion(letter)
+      end
+    end
+    encrypted.join.to_s
   end
 end
