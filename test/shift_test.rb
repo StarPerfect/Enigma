@@ -17,5 +17,6 @@ class ShiftTest < Minitest::Test
     assert_equal 73, @shift.c
     assert_equal 20, @shift.d
     assert_equal [3, 27, 73, 20], @shift.final_shift
+    assert_equal Array, @shift.final_shift.class
   end
 end
