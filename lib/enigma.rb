@@ -1,16 +1,17 @@
 class Enigma
   include RandomFive
   include SixDigitDate
-  attr_reader :alphabet#, :key, :date
+
+  attr_reader :key, :date
 
   def initialize
-    @alphabet = ('a'..'z').to_a << " "
-    # @key = key || key_generate
-    # @date = date || six_digit_date
+    @message = Message.new
+    @key = key #|| key_generate
+    @date = date #|| six_digit_date
   end
 
   def encrypt(message, key = key_generate, date = six_digit_date)
-
+    encrypt_hash = {encryption: @message, key: @key, date: @date}
   end
 
   def decrypt(message, key = key_generate, date = six_digit_date)
