@@ -10,10 +10,10 @@ class Key
 
   def get_keys
     {
-      a: @five_digits[0..1].to_i,
-      b: @five_digits[1..2].to_i,
-      c: @five_digits[2..3].to_i,
-      d: @five_digits[3..4].to_i
+      a: five_digits[0..1].to_i,
+      b: five_digits[1..2].to_i,
+      c: five_digits[2..3].to_i,
+      d: five_digits[3..4].to_i
     }
   end
 end

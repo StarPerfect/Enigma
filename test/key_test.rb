@@ -14,5 +14,9 @@ class KeyTest < Minitest::Test
     assert_equal 12, @key.get_keys[:b]
     assert_equal 23, @key.get_keys[:c]
     assert_equal 34, @key.get_keys[:d]
+
+    expected = { a: 1, b: 12, c: 23, d: 34 }
+
+    assert_equal expected, @key.get_keys
   end
 end
