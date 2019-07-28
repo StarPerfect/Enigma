@@ -10,9 +10,9 @@ class OffsetTest < Minitest::Test
   end
 
   def test_individual_offsets
-    assert_equal 2, @offset.a_offset
-    assert_equal 7, @offset.b_offset
-    assert_equal 5, @offset.c_offset
-    assert_equal 6, @offset.d_offset
+    assert_equal 2, @offset.get_offset[:a]
+    assert_equal 7, @offset.get_offset[:b]
+    assert_equal 5, @offset.get_offset[:c]
+    assert_equal 6, @offset.get_offset[:d]
   end
 end
