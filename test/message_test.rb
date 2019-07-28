@@ -5,7 +5,7 @@ class MessageTest < Minitest::Test
     @key = Key.new('02715')
     @offset = Offset.new('040895')
     @shift = Shift.new(@key, @offset)
-    @plain_text = Message.new('hello world', @shift.final_shift)
+    @plain_text = Message.new('hello world', @shift)
   end
 
   def test_message_exists
@@ -17,7 +17,7 @@ class MessageTest < Minitest::Test
     assert_equal 27, @plain_text.alphabet.length
   end
 
-  def test_encrypt
-    assert_equal "keder ohulw", @plain_text.encrypt('hello world')
+  def test_encrypt_message
+    assert_equal "keder ohulw", @plain_text.encrypt_message('hello world')
   end
 end
