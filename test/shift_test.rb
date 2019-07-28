@@ -11,6 +11,11 @@ class ShiftTest < Minitest::Test
     assert_instance_of Shift, @shift
   end
 
+  def test_attributes
+    assert_equal @key, @shift.key
+    assert_equal @offset, @shift.offset
+  end
+
   def test_can_add_key_to_offset_for_final_shift
     assert_equal 3, @shift.final_shift[:a]
     assert_equal 27, @shift.final_shift[:b]
