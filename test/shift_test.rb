@@ -12,11 +12,19 @@ class ShiftTest < Minitest::Test
   end
 
   def test_can_add_key_to_offset_for_final_shift
-    assert_equal 3, @shift.a
-    assert_equal 27, @shift.b
-    assert_equal 73, @shift.c
-    assert_equal 20, @shift.d
-    assert_equal [3, 27, 73, 20], @shift.final_shift
-    assert_equal Array, @shift.final_shift.class
+    assert_equal 3, @shift.final_shift[:a]
+    assert_equal 27, @shift.final_shift[:b]
+    assert_equal 73, @shift.final_shift[:c]
+    assert_equal 20, @shift.final_shift[:d]
+
+    expected = {
+      a: 3,
+      b: 27,
+      c: 73,
+      d: 20
+    }
+
+    assert_equal expected, @shift.final_shift
+    assert_equal Hash, @shift.final_shift.class
   end
 end
