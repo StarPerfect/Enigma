@@ -1,11 +1,16 @@
-require './lib/message'
+require './lib/enigma'
+require './lib/shift'
+require './lib/key'
+require './lib/offset'
+require 'pry'
 
-message = Message.new
+enigma = Enigma.new
+handle = File.open(ARGV[0], 'r')
+incoming_text = handle.read
+output_text = enigma.encrypt(incoming_text.chomp)[:encryption]
+writer = File.open(ARGV[1], 'w')
+writer.write(output_text)
+writer.close
 
-message_input = ARG[0]
-encrypted_output = ARGV[1]
-
-output = File.open(ARGV[0], 'w')
-File.new(encrypted_output).each_line{ |line| output.puts message.encrypt(line.chomp)}
-
-puts "Created 'encrypted.txt' with the key #{message.key} and date #{message.date}"
+puts "Created #{ARGV[1]} with the key #{enigma.encrypt(incoming_text.chomp)[:key].five_digits
+} and date #{enigma.encrypt(incoming_text.chomp)[:date].date}"
