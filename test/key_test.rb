@@ -10,9 +10,9 @@ class KeyTest < Minitest::Test
   end
 
   def test_individual_keys
-    assert_equal  1, @key.a_key
-    assert_equal 12, @key.b_key
-    assert_equal 23, @key.c_key
-    assert_equal 34, @key.d_key
+    assert_equal  1, @key.get_keys[:a]
+    assert_equal 12, @key.get_keys[:b]
+    assert_equal 23, @key.get_keys[:c]
+    assert_equal 34, @key.get_keys[:d]
   end
 end
