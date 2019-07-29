@@ -2,6 +2,7 @@ require './lib/enigma'
 require './lib/shift'
 require './lib/key'
 require './lib/offset'
+require './lib/message'
 require 'pry'
 
 enigma = Enigma.new
@@ -12,5 +13,5 @@ writer = File.open(ARGV[1], 'w')
 writer.write(output_text)
 writer.close
 
-puts "Created #{ARGV[1]} with the key #{enigma.encrypt(incoming_text.chomp)[:key].five_digits
-} and date #{enigma.encrypt(incoming_text.chomp)[:date].date}"
+puts "Created #{ARGV[1]} with the key #{enigma.encrypt(incoming_text.chomp)[:key]
+} and date #{enigma.encrypt(incoming_text.chomp)[:date]}"

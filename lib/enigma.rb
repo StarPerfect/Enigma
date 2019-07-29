@@ -13,13 +13,12 @@ class Enigma
     key = Key.new(key)
     offset = Offset.new(offset)
     shift = Shift.new(key, offset)
-    # shift = shift.final_shift
-    input = Message.new(message, shift.final_shift)
-    encrypted = input.encrypt(message)
+    input = Message.new(message, shift)
+    encrypted = input.encrypt_message(message)
     encrypt_hash = {
       encryption: encrypted,
-      key: key,
-      date: offset
+      key: key.five_digits,
+      date: offset.date
     }
   end
 

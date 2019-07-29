@@ -2,18 +2,11 @@ require './test/test_helper'
 
 class EnigmaTest < Minitest::Test
   def setup
-    @key = Key.new
-    @offset = Offset.new
-    @shift = Shift.new(@key, @offset)
     @enigma = Enigma.new
   end
 
   def test_enigma_exists
     assert_instance_of Enigma, @enigma
-  end
-
-  def test_attributes
-    assert_equal 27, @enigma.alphabet.length
   end
 
   def test_enrypt
