@@ -1,7 +1,7 @@
 require './modules/six_digit_date'
 
 class Offset
-  attr_reader :date#, :a, :b, :c, :d
+  attr_reader :date
 
   def initialize(date)
     @date = date

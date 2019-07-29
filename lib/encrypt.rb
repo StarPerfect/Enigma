@@ -1,9 +1,8 @@
 require './lib/enigma'
-require './lib/shift'
-require './lib/key'
-require './lib/offset'
-require './lib/message'
-require 'pry'
+# require './lib/shift'
+# require './lib/key'
+# require './lib/offset'
+# require './lib/message'
 
 enigma = Enigma.new
 handle = File.open(ARGV[0], 'r')
