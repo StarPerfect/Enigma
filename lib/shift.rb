@@ -1,3 +1,6 @@
+require './lib/key'
+require './lib/offset'
+
 class Shift
   attr_reader :key, :offset
 
@@ -6,19 +9,7 @@ class Shift
     @offset = offset
   end
 
-  def a
-    @key.a_key + @offset.a_offset
-  end
-
-  def b
-    @key.b_key + @offset.b_offset
-  end
-
-  def c
-    @key.c_key + @offset.c_offset
-  end
-
-  def d
-    @key.d_key + @offset.d_offset
+  def final_shift
+    final_shift = @key.get_keys.merge(@offset.get_offset){ |k, v1, v2| v1 + v2 }
   end
 end

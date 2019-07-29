@@ -1,34 +1,19 @@
+require './modules/random_five'
+require 'pry'
+
 class Key
-  attr_reader :key_array
+  attr_reader :five_digits
 
-  def initialize
-    @key_array = []
+  def initialize(five_digits)
+    @five_digits = five_digits
   end
 
-  def generate
-    5.times do
-      @key_array << rand(9)
-    end
-  @key_array
-  end
-
-  def get_key(index)
-    (generate[index].to_s + generate[index + 1].to_s).to_i
-  end
-
-  def a_key
-    get_key(0)
-  end
-
-  def b_key
-    get_key(1)
-  end
-
-  def c_key
-    get_key(2)
-  end
-
-  def d_key
-    get_key(3)
+  def get_keys
+    {
+      a: five_digits[0..1].to_i,
+      b: five_digits[1..2].to_i,
+      c: five_digits[2..3].to_i,
+      d: five_digits[3..4].to_i
+    }
   end
 end

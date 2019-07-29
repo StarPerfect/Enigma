@@ -2,8 +2,7 @@ require './test/test_helper'
 
 class KeyTest < Minitest::Test
   def setup
-    @key = Key.new
-    @key.generate
+    @key = Key.new('01234')
   end
 
   def test_key_exists
@@ -11,11 +10,13 @@ class KeyTest < Minitest::Test
   end
 
   def test_individual_keys
-    @key.stubs(:generate).returns([0, 1, 2, 3, 4])
+    assert_equal  1, @key.get_keys[:a]
+    assert_equal 12, @key.get_keys[:b]
+    assert_equal 23, @key.get_keys[:c]
+    assert_equal 34, @key.get_keys[:d]
 
-    assert_equal  1, @key.a_key
-    assert_equal 12, @key.b_key
-    assert_equal 23, @key.c_key
-    assert_equal 34, @key.d_key
+    expected = { a: 1, b: 12, c: 23, d: 34 }
+
+    assert_equal expected, @key.get_keys
   end
 end
