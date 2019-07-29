@@ -15,6 +15,7 @@ class MessageTest < Minitest::Test
   def test_attributes
     assert_equal 'hello world', @plain_text.message
     assert_equal 27, @plain_text.alphabet.length
+    assert_equal @shift.final_shift, @plain_text.shift
   end
 
   def test_encrypt_message
