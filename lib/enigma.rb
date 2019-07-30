@@ -11,7 +11,7 @@ class Enigma
     cipher = Cipher.new(shift)
     input = Message.new(message, cipher)
     encrypted = input.encrypt_message(message)
-    details = {encryption: encrypted, key: encrypt_key.five_digits, date: encrypt_offset.date}
+    {encryption: encrypted, key: encrypt_key.five_digits, date: encrypt_offset.date}
   end
 
   def decrypt(message, key, date = six_digit_date)
@@ -21,6 +21,6 @@ class Enigma
     cipher = Cipher.new(shift)
     input = Message.new(message, cipher)
     decrypted = input.decrypt_message(message)
-    details = {decryption: decrypted, key: decrypt_key.five_digits, date: decrypt_offset.date}
+    {decryption: decrypted, key: decrypt_key.five_digits, date: decrypt_offset.date}
   end
 end
