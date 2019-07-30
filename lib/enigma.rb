@@ -14,12 +14,12 @@ class Enigma
     details = {encryption: encrypted, key: key.five_digits, date: offset.date}
   end
 
-  def decrypt(message, key = key_generate, date = six_digit_date)
+  def decrypt(message, key, date = six_digit_date)
     key = Key.new(key)
-    offset = Offset.new(offset)
+    offset = Offset.new(date)
     shift = Shift.new(key, offset, -1)
-    shift = shift.final_shift
-    input = Message.new(message, shift)
+    cipher = Cipher.new(shift)
+    input = Message.new(message, cipher)
     decrypted = input.decrypt_message(message)
     details = {decryption: decrypted, key: key.five_digits, date: offset.date}
   end
