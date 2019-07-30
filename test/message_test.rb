@@ -4,8 +4,12 @@ class MessageTest < Minitest::Test
   def setup
     @key = Key.new('02715')
     @offset = Offset.new('040895')
-    @shift = Shift.new(@key, @offset)
-    @plain_text = Message.new('hello world', @shift)
+    @encrypt_shift = Shift.new(@key, @offset)
+    @encrypt_cipher = Cipher.new(@encrypt_shift)
+    @decrypt_shift = Shift.new(@key, @offset, -1)
+    @decrypt_cipher = Cipher.new(@decrypt_shift)
+    @plain_text = Message.new('hello world', @encrypt_cipher)
+    @coded_text = Message.new('keder ohulw', @decrypt_cipher)
   end
 
   def test_message_exists
@@ -14,11 +18,13 @@ class MessageTest < Minitest::Test
 
   def test_attributes
     assert_equal 'hello world', @plain_text.message
-    assert_equal 27, @plain_text.alphabet.length
-    assert_equal @shift.final_shift, @plain_text.shift
   end
 
   def test_encrypt_message
     assert_equal "keder ohulw", @plain_text.encrypt_message('hello world')
+  end
+
+  def test_decrypt_message
+    assert_equal 'hello world', @coded_text.decrypt_message('keder ohulw')
   end
 end
