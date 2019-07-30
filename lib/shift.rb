@@ -11,7 +11,7 @@ class Shift
   end
 
   def final_shift
-    final_shift = @key.get_keys
+    @key.get_keys
       .merge(@offset.get_offset) do |k, v1, v2|
       (v1 + v2) * @left_or_right
     end
