@@ -13,6 +13,14 @@ class CipherTest < Minitest::Test
   end
 
   def test_attributes
-    binding.pry
+    assert_equal 27, @cipher.alphabet.length
+    assert_equal @shift.final_shift, @cipher.shift
+  end
+
+  def test_cipher
+    assert_equal 'd', @cipher.cipher[:a]['a']
+    assert_equal 'a', @cipher.cipher[:b]['a']
+    assert_equal 't', @cipher.cipher[:c]['a']
+    assert_equal 'u', @cipher.cipher[:d]['a']
   end
 end
