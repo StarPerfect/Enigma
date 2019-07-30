@@ -14,7 +14,6 @@ class CipherTest < Minitest::Test
 
   def test_attributes
     assert_equal 27, @cipher.alphabet.length
-    assert_equal @shift.final_shift, @cipher.shift
   end
 
   def test_cipher
