@@ -7,13 +7,13 @@ class Cipher
   end
 
   def cipher
-    shift.map do |shift|
+    shift.map do |letter, num|
       shifted = Hash.new
-      array = @alphabet.rotate(shift[1])
+      array = @alphabet.rotate(num)
       @alphabet.each do |char|
         shifted[char] = array[@alphabet.index(char)]
       end
-      [shift[0], shifted]
+      [letter, shifted]
     end.to_h
   end
 end
