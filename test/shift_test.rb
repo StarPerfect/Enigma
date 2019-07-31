@@ -32,4 +32,16 @@ class ShiftTest < Minitest::Test
     assert_equal expected, @shift.final_shift
     assert_equal Hash, @shift.final_shift.class
   end
+
+  def test_negative_shift
+    key = mock('Key')
+    key.stubs(:get_keys).returns({a: 1, b: 1, c: 1, d: 1})
+    offset = mock('Offset')
+    offset.stubs(:get_offset).returns({a: 2, b: 2, c: 2, d: 2})
+    shift = Shift.new(key, offset, -1)
+
+    expected = {a: -3, b: -3, c: -3, d: -3}
+
+    assert_equal expected, shift.final_shift
+  end
 end
