@@ -14,7 +14,7 @@ I believe TDD is my strongest area of understanding from Mod 1. I believe I also
 
 Difficulties for me arose in trying to troubleshoot various issues while having so many moving parts. Even though I tried to keep classes to single responsibility, I feel like my classes are too closely coupled. This is probably why it was so difficult to troubleshoot. I would like to learn how to maintain single responsibility with small-sized classes while keeping them loosely coupled.
 
-# Overall Self-Assessment
+## Overall Self-Assessment
 
 **Functionality:** 2.5 - I have been trying to troubleshoot the same decryption CLI problem for 2 days now and, despite making progress, have not been able to get it completely working to move on to the cracking. =(
 
