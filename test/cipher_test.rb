@@ -22,4 +22,13 @@ class CipherTest < Minitest::Test
     assert_equal 't', @cipher.cipher[:c]['a']
     assert_equal 'u', @cipher.cipher[:d]['a']
   end
+
+  def test_negative_shift_cipher
+    shift = mock('Shift')
+    shift.stubs(:final_shift).returns({a: -3, b: -3, c: -3, d: -3})
+
+    expected = {
+      a: {}
+    }
+  end
 end
