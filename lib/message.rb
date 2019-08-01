@@ -3,7 +3,7 @@ class Message
 
   def initialize(message, cipher)
     @message = message
-    @cipher = cipher.cipher
+    @cipher = cipher
   end
 
   def encrypt_message(message)
@@ -11,14 +11,17 @@ class Message
     encrypted = []
     index = 0
     message.map do |letter|
-      if index % 4 == 0
-        encrypted << @cipher[:a][letter]
+      binding.pry
+      if !@cipher.alphabet.include?(letter)
+        encrypted << letter
+      elsif index % 4 == 0
+        encrypted << @cipher.cipher[:a][letter]
       elsif index % 4 == 1
-        encrypted << @cipher[:b][letter]
+        encrypted << @cipher.cipher[:b][letter]
       elsif index % 4 == 2
-        encrypted << @cipher[:c][letter]
+        encrypted << @cipher.cipher[:c][letter]
       elsif index % 4 == 3
-        encrypted << @cipher[:d][letter]
+        encrypted << @cipher.cipher[:d][letter]
       end
       index += 1
     end
