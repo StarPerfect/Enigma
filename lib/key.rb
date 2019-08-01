@@ -1,11 +1,11 @@
 require './modules/random_five'
-require 'pry'
 
 class Key
+  include RandomFive
   attr_reader :five_digits
 
   def initialize(five_digits)
-    @five_digits = five_digits
+    @five_digits = five_digits || key_generate
   end
 
   def get_keys

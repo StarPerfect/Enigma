@@ -1,10 +1,11 @@
 require './modules/six_digit_date'
 
 class Offset
+  include SixDigitDate
   attr_reader :date
 
   def initialize(date)
-    @date = date
+    @date = date || six_digit_date
   end
 
   def generate
@@ -20,4 +21,5 @@ class Offset
       d: generate[3].to_i
     }
   end
+
 end

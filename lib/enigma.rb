@@ -1,22 +1,21 @@
 require './test/test_helper'
 
 class Enigma
-  include RandomFive
-  include SixDigitDate
-
-  def encrypt(message, key = key_generate, offset = six_digit_date)
-    encrypt_key = Key.new(key)
-    encrypt_offset = Offset.new(offset)
-    shift = Shift.new(encrypt_key, encrypt_offset)
+  def encrypt(message, key = nil, offset = nil)
+    key_obj = Key.new(key)
+    offset_obj = Offset.new(offset)
+    binding.pry
+    shift = Shift.new(key_obj, offset_obj)
     cipher = Cipher.new(shift)
     input = Message.new(message, cipher)
     encrypted = input.encrypt_message(message)
-    {encryption: encrypted, key: encrypt_key.five_digits, date: encrypt_offset.date}
+    {encryption: encrypted, key: key_obj.five_digits, date: offset_obj.date}
   end
 
   def decrypt(message, key, date = six_digit_date)
     decrypt_key = Key.new(key)
     decrypt_offset = Offset.new(date)
+    binding.pry
     shift = Shift.new(decrypt_key, decrypt_offset, -1)
     cipher = Cipher.new(shift)
     input = Message.new(message, cipher)
